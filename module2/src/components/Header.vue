@@ -1,16 +1,30 @@
 <template>
     <div class="header">
-        <h1>Quotes Added</h1>
-        <div class="quote-progress"><span class="quote-percent" :style="{width: progress * 10 + '%'}">{{ progress }} / 10 </span></div>
+        <h1 class="mdc-typography--display3 mdc-typography--adjust-margin">Quotes Added</h1>
+        <div class="quote-progress">
+            <span class="quote-percent" :style="{width: progress * 10 + '%'}">{{ progress }} / 10 </span>
+        </div>
     </div>
 </template>
 
 <script>
+    import {bus} from '../main'
+
     export default {
-        data: function () {
+        data() {
             return {
-                progress: 5      
+                progress: 0
             }
+        },
+        created() {
+            bus.$on('new-quote', () => {
+                if (this.progress < 10) {
+                    this.progress++
+                }
+            })
+            bus.$on('remove-quote', () => {
+                this.progress--
+            })
         }
     }
 </script>
@@ -18,15 +32,16 @@
 <style lang="scss" scoped>
     .quote-progress {
         width: 100%;
-        background-color: #d7d7d7;
+        background-color: $mdc-theme-background;
         margin: 0 auto;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px;
         height: 30px;
     }
+
     .quote-percent {
-        background-color: rgba(102, 189, 255, 0.61);
+        background-color: $mdc-theme-primary;
         display: block;
         text-align: center;
         transition: width 0.5s;
@@ -35,15 +50,16 @@
         padding: 5px;
         box-sizing: border-box;
         color: white;
+        min-width: 70px;
     }
-    
+
     h1 {
-        color: #3ebaff;
+        color: $mdc-theme-primary;
         font-weight: normal;
     }
-    
+
     .header {
-        width: 1000px;
+        width: 100%;
         margin: 30px auto;
     }
 </style>

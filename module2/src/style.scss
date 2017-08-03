@@ -1,0 +1,11 @@
+@import "~material-components-web/material-components-web";
+
+$mdc-theme-primary: #4eadff;
+$mdc-theme-accent: #ff4081;
+$mdc-theme-shadow: rgba(67, 67, 67, 0.5);
+
+:root {
+  --mdc-theme-background: $mdc-theme-background;
+  --mdc-theme-accent: $mdc-theme-accent;
+  --mdc-theme-primary: $mdc-theme-primary;
+}

@@ -1,23 +1,23 @@
 <template>
-    <div>
-        <slot></slot>    
+    <div class="note">
+        <slot></slot>
     </div>
 </template>
 
 <script>
-    
+    export default {}
 </script>
 
 <style lang="scss" scoped>
     .note {
-        background-color: rgba(64, 173, 255, 0.2);
         width: 100%;
-        max-width: 800px;
         height: 50px;
-        border: 1px solid #30b1ff;
+        border: 1px solid $mdc-theme-primary;
         border-radius: 5px;
         margin: 30px auto;
         text-align: center;
-        color: #26a9ff;
+        background-color: $mdc-theme-background;
+        color: $mdc-theme-primary;
+        box-shadow: 1px 1px 10px $mdc-theme-shadow;
     }
 </style>
