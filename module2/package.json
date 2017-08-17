@@ -11,7 +11,7 @@
     "builddev": "cross-env NODE_ENV=dev webpack --progress --hide-modules"
   },
   "dependencies": {
-    "material-components-web": "^0.16.0",
+    "material-components-web": "^0.17.0",
     "vue": "^2.3.3"
   },
   "devDependencies": {
